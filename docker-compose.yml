@@ -1,0 +1,47 @@
+# Stub. The api and dashboard Dockerfiles arrive on days 6 to 8, so this file
+# will not run yet. Target: `docker compose up` starts the whole stack.
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models:ro
+      - alerts:/app/storage
+    environment:
+      IDS_MODEL_DIR: /app/models
+      IDS_DB_PATH: /app/storage/alerts.db
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: docker/dashboard.Dockerfile
+    ports:
+      - "8501:8501"
+    environment:
+      IDS_API_URL: http://api:8000
+      IDS_DB_PATH: /app/storage/alerts.db
+    volumes:
+      - alerts:/app/storage:ro
+    depends_on:
+      - api
+
+  # Live sensor: Linux/WSL2 only. Needs the host network to see the lab bridge.
+  # Enable with: docker compose --profile sensor up
+  sensor:
+    profiles: ["sensor"]
+    build:
+      context: .
+      dockerfile: docker/sensor.Dockerfile
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    environment:
+      IDS_API_URL: http://localhost:8000
+      IDS_IFACE: br-lab
+
+volumes:
+  alerts:

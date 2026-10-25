@@ -1,0 +1,7 @@
+# Filled in on day 2: the top 20-30 features by Random Forest importance.
+# The model, the API schema and the live sensor all read this one list.
+label: Label
+family: Family
+drop_leaky:
+  - Destination Port
+features: []

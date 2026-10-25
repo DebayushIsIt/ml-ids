@@ -1,0 +1,13 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pandas==2.2.3 numpy==1.26.4 pyarrow==18.1.0 pytest==8.3.4 ruff==0.8.4
+      - run: ruff check src tests
+      - run: pytest -q

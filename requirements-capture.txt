@@ -1,0 +1,3 @@
+# Day 5, Linux/WSL2 only. Installed separately because it pins its own deps.
+# pip install -r requirements-capture.txt
+cicflowmeter
