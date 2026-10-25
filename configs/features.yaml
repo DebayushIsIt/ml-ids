@@ -1,7 +1,75 @@
-# Filled in on day 2: the top 20-30 features by Random Forest importance.
-# The model, the API schema and the live sensor all read this one list.
+# Written by `python -m ids.features.prepare`. Do not edit by hand.
+# The model, the API schema and the live sensor all read `features`.
 label: Label
 family: Family
+target: Family
+dropped_families:
+- Infiltration
+- Heartbleed
 drop_leaky:
-  - Destination Port
-features: []
+- Destination Port
+dropped_correlated:
+- Total Backward Packets
+- Total Length of Bwd Packets
+- Bwd Packet Length Std
+- Fwd IAT Total
+- Fwd IAT Max
+- Max Packet Length
+- ECE Flag Count
+- Average Packet Size
+- Subflow Fwd Bytes
+- Subflow Bwd Bytes
+- Idle Mean
+- Idle Max
+features:
+- Init_Win_bytes_backward
+- Total Length of Fwd Packets
+- Fwd Packet Length Max
+- Packet Length Mean
+- Bwd Header Length
+- Fwd Packet Length Mean
+- Packet Length Std
+- Flow Bytes/s
+- Bwd Packet Length Mean
+- Bwd Packet Length Max
+- Bwd Packet Length Min
+- Packet Length Variance
+- min_seg_size_forward
+- Idle Min
+- Fwd Header Length
+- Flow Duration
+- Flow IAT Max
+- Init_Win_bytes_forward
+- Flow IAT Std
+- Total Fwd Packets
+- Fwd IAT Std
+- Bwd Packets/s
+- Bwd IAT Max
+- Flow IAT Mean
+- Fwd Packets/s
+importance:
+  Init_Win_bytes_backward: 0.08348
+  Total Length of Fwd Packets: 0.05533
+  Fwd Packet Length Max: 0.05496
+  Packet Length Mean: 0.04425
+  Bwd Header Length: 0.04365
+  Fwd Packet Length Mean: 0.04347
+  Packet Length Std: 0.04256
+  Flow Bytes/s: 0.04203
+  Bwd Packet Length Mean: 0.03367
+  Bwd Packet Length Max: 0.03336
+  Bwd Packet Length Min: 0.03089
+  Packet Length Variance: 0.02962
+  min_seg_size_forward: 0.02925
+  Idle Min: 0.02901
+  Fwd Header Length: 0.02772
+  Flow Duration: 0.02706
+  Flow IAT Max: 0.02624
+  Init_Win_bytes_forward: 0.02553
+  Flow IAT Std: 0.02362
+  Total Fwd Packets: 0.02258
+  Fwd IAT Std: 0.02193
+  Bwd Packets/s: 0.02064
+  Bwd IAT Max: 0.01736
+  Flow IAT Mean: 0.01616
+  Fwd Packets/s: 0.01575

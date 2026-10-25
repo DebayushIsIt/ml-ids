@@ -1,0 +1,29 @@
+{
+  "train": {
+    "Benign": 290142,
+    "DoS": 135621,
+    "DDoS": 89610,
+    "PortScan": 63486,
+    "Brute force": 6405,
+    "Web attack": 1500,
+    "Bot": 1364
+  },
+  "val": {
+    "Benign": 62173,
+    "DoS": 29062,
+    "DDoS": 19202,
+    "PortScan": 13604,
+    "Brute force": 1372,
+    "Web attack": 322,
+    "Bot": 292
+  },
+  "test": {
+    "Benign": 62174,
+    "DoS": 29062,
+    "DDoS": 19202,
+    "PortScan": 13604,
+    "Brute force": 1373,
+    "Web attack": 321,
+    "Bot": 292
+  }
+}
